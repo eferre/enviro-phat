@@ -8,10 +8,9 @@ except ImportError:
     elif version_info[0] == 3:
         exit("This library requires python3-smbus\nInstall with: sudo apt-get install python3-smbus")
 
+bus = None
 try:
     import RPi.GPIO as GPIO
-    bus = None
-
     if GPIO.RPI_REVISION == 2 or GPIO.RPI_REVISION == 3:
         bus = smbus.SMBus(1)
     else:
